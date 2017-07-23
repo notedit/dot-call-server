@@ -1,0 +1,8 @@
+{
+  "name": "dot-call-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:notedit/dot-call-server.git",
+  "author": "notedit <notedit@gmail.com>",
+  "license": "MIT"
+}
