@@ -4,5 +4,12 @@
   "main": "index.js",
   "repository": "git@github.com:notedit/dot-call-server.git",
   "author": "notedit <notedit@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.3",
+    "express-ws": "^3.0.0",
+    "got": "^7.1.0",
+    "http-proxy": "^1.16.2",
+    "sdp-transform": "^2.3.0"
+  }
 }
