@@ -26,10 +26,8 @@ class Peer extends EventEmitter {
         this._server = server
         this._socket = socket
         this._id = socket.id 
-
         this._closed = false;
-
-
+        
         socket.on('message', async (msg) =>{
 			try {
 				await this.onMessage(msg);
@@ -49,11 +47,56 @@ class Peer extends EventEmitter {
     get id(){
         return this._id
     }
-    async onMessage(message){
-        
-		let self = this;
-		logger.debug('message ', message);
+    async handleRegister(message){
 
+    }
+    async handleOffer(message){
+
+    }
+    async handleAnswer(message){
+        
+    }
+    async handleIce(message){
+
+    }
+    async handleBye(message){
+
+    }
+    async onMessage(message){
+
+		let self = this
+		logger.debug('message ', message)
+
+        let msg = Message.parse(message)
+
+		if(!msg){
+			return
+		}
+
+        if(msg.type === 'register'){
+			await this.handleRegister(msg)
+			return
+		}
+
+        if(msg.type === 'offer'){
+            await this.handleOffer(msg)
+            return 
+        }
+        
+        if(msg.type === 'answer'){
+            await this.handleAnswer(msg)
+            return 
+        }
+
+        if(msg.type === 'ice'){
+            await this.handleIce(msg)
+            return 
+        }
+
+        if(msg.type === 'bye'){
+            await this.handleBye(msg)
+            return
+        }
     }
     close(){
         
